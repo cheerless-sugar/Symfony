@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminPanelController!
+{% endblock %}
+
+{% block body %}
+	<div class="container mx-auto">
+		<div class="mt-5">
+			<p class="display-3">
+				<b>Administration Panel</b>
+			</p>
+		</div>
+		<div class="mt-5">
+			<ul class="flex flex-row mt-5">
+				<div class="list-unstyled p-5 mt-2">
+					<a class=" h3 border bg-light" href="{{ path('app_admin_performance') }}">Performances</a>
+				</div>
+				<div class="list-unstyled p-5 mt-2">
+					<a class=" h3 border bg-light" href="{{ path('app_admin_actor') }}">Actors</a>
+				</div>
+				<div class="list-unstyled p-5 mt-2">
+					<a class=" h3 border bg-light" href="{{ path('app_admin_performance_actor') }}">Add Actor to Performance</a>
+				</div>
+				<div class="list-unstyled p-5 mt-2">
+					<a class=" h3 border bg-light" href="{{ path('app_admin_add_actor') }}">Add Actor</a>
+				</div>
+				<div class="list-unstyled p-5 mt-2">
+					<a class=" h3 border bg-light" href="{{ path('app_admin_add_performance') }}">Add Performance</a>
+				</div>
+			</ul>
+		</div>
+	</div>
+{% endblock %}

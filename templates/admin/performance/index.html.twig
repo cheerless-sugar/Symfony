@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminPerformanceController!
+{% endblock %}
+
+{% block body %}
+	<div class="container mx-auto mt-5">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Name</th>
+					<th scope="col">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for performance in performances %}
+					<tr>
+						<th scope="row">{{ performance.id }}</th>
+						<td>«{{ performance.name }}»</td>
+						<td>
+							<div class="d-flex flex-row gap-2">
+								<a class="btn btn-primary" href="{{ path('app_admin_update_performance', { id: performance.id }) }}">Edit</a>
+								<a class="btn btn-danger" href="{{ path('app_admin_delete_performance', { id: performance.id }) }}">Delete</a>
+							</div>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ actor.name }}
+{% endblock %}
+
+{% block body %}
+	<div class="container mx-auto mt-5">
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success">
+				{{ message }}
+			</div>
+		{% endfor %}
+		{% for message in app.flashes('error') %}
+			<div class="alert alert-danger">
+				{{ message }}
+			</div>
+		{% endfor %}
+		<div class="row align-items-center">
+			<a href="{{ path('app_admin_actor') }}">
+				Back Actor List
+			</a>
+			<div class="col-6">
+				<p class="h1">About Actor</p>
+				<p class="h5">{{ actor.name }}
+					{{ actor.surname }}</p>
+				<p>{{ actor.email }}</p>
+				<p class="h1 mt-5">Actor Roles</p>
+				<div id="contests" class="d-flex gap-3">
+					{% for performance in actor.actorPerformances %}
+						<span class="btn btn-primary rounded">{{ performance.performance.name }}</span>
+					{% else %}
+						<span>* К сожалению актер пока не учавствует в спектаклях</span>
+					{% endfor %}
+
+					<span class="btn btn-primary rounded">
+						<a class="text-white" href="{{ path('app_admin_performance_actor', { actor: actor.id }) }}">Add one more...</a>
+					</span>
+				</div>
+
+			</div>
+			<div class="col-6"></div>
+		</div>
+	</div>
+{% endblock %}

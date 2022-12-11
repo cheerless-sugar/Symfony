@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}All Performances
+{% endblock %}
+
+{% block body %}
+	<div class="container mx-auto mt-5">
+		<div class="row gap-3">
+			{% for performance in performances %}
+				<div class="card" style="width: 18rem;">
+					<img class="card-img-top" style="height: 18rem; object-fit:cover"  src="{{ performance.imageUrl }}" alt="Card image cap">
+					<div class="card-body">
+						<h5 class="card-title">{{ performance.name }}</h5>
+						<p class="card-text ellipse">{{ performance.description }}</p>
+						<a href="{{ path('app_performance_view', { id: performance.id }) }}" class="btn btn-primary mt-2">Read More
+						</a>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}
